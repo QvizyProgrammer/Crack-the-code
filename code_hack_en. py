@@ -1,0 +1,40 @@
+import random
+import os
+import time
+
+viv = ''
+schet = 0
+schetchik = 0
+pop = 0
+print('choose the difficulty (1, 2, 3...)')
+slozh = int(input('>>> '))
+os.system('clear')
+
+for i in range(slozh):
+    chislo = random.randint(0, 9)
+    viv = viv + str(chislo)
+start = time.time()
+while True:
+    code = input('code: ')
+    code1 = list(code)
+    code2 = list(viv)
+    if code == 'code 1':
+        os.system('clear')
+        stop = time.time()
+        result = stop - start
+        print(f'the code has been successfully hacked!\ninformation:\nthe time of the hack: {result}\nattempts: {pop}\ncode: {viv}')
+        break
+    for i in range(slozh):
+        if code1[schet] == code2[schet]:
+            schetchik += 1
+        schet += 1
+    print(f'accordance: {schetchik}')
+    if schetchik == slozh:
+        os.system('clear')
+        stop = time.time()
+        result = stop - start
+        print(f'the code has been successfully hacked!\ninformation:\nthe time of the hack: {result}\nattempts: {pop}\ncode: {viv}')
+        break
+    schetchik = 0
+    schet = 0
+    pop += 1
